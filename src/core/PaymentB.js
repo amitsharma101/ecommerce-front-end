@@ -66,7 +66,7 @@ const PaymentB = ({
         .then((response) => {
           console.log("POINT-1", response);
           if (response.error) {
-            if (response.code == "1") {
+            if (response.code === "1") {
               console.log("PAYMENT Failed!");
               signout(() => {
                 return <Redirect to="/" />;
@@ -89,14 +89,14 @@ const PaymentB = ({
             createOrder(userId, token, orderData)
               .then((response) => {
                 if (response.error) {
-                  if (response.code == "1") {
+                  if (response.code === "1") {
                     console.log("Order Failed!");
                     signout(() => {
                       return <Redirect to="/" />;
                     });
                   }
                 } else {
-                  if (response.success == true) {
+                  if (response.success === true) {
                     console.log("ORDER PLACED!!");
                   }
                 }
